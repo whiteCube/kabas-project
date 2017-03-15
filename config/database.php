@@ -1,10 +1,14 @@
 <?php
-
 return [
+
+      /**
+       * Database connexion info
+       */
+
       'driver'    => 'mysql',
       'host'      => 'localhost',
-      'database'  => 'kabas_test',
-      'username'  => 'root',
+      'database'  => '',
+      'username'  => '',
       'password'  => '',
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',

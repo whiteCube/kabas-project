@@ -1,15 +1,12 @@
 <?php
 
 /**
- * Kabas - Build custom websites in a record time
+ * Kabas application (website) launch
  *
  * @package  Kabas
  * @author   WhiteCube <hello@whitecube.be>
  */
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-setlocale(LC_TIME, 'fr_FR');
 
 /*
 |--------------------------------------------------------------------------
@@ -21,15 +18,16 @@ setlocale(LC_TIME, 'fr_FR');
 |
 */
 
-require __DIR__.'/core/_bootstrap/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
 | Let's fly
 |--------------------------------------------------------------------------
 |
-| Initialise a new Kabas instance
+| Initialise a new Kabas instance and run the app.
 |
 */
 
-$kabas = require_once __DIR__.'/core/_bootstrap/init.php';
+$kabas = new Kabas\App(realpath(__DIR__ . '/../'));
+$kabas->boot();

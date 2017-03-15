@@ -1,6 +1,6 @@
 # Ignore themes
 /themes/*
-!/themes/Example/
+!/themes/Welcome/
 !/themes/README.md
 
 # Ignore vendor files
@@ -11,9 +11,6 @@
 
 # Ignore content
 /content/*
-
-# Ignore autoload
-/core/_bootstrap/Bootstrap/autoload-build.php
 
 # Ignore things
 composer.lock

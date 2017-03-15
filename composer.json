@@ -1,22 +1,40 @@
 {
-    "name": "whitecube/kabas",
+    "name": "kabas/cms",
     "authors": [
         {
             "name": "WhiteCube",
             "email": "hello@whitecube.be"
+        },
+        {
+            "name": "Toon Van den Bos",
+            "email": "toon@whitecube.be"
+        },
+        {
+            "name": "Adrien Leloup",
+            "email": "adrien@whitecube.be"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "kabas/core",
+                "version": "0.1.4",
+                "type": "package",
+                "source": {
+                    "url": "git@gitlab.whitecube.be:kabas/core.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ],
     "require": {
-        "intervention/image": "^2.3",
-        "illuminate/container": "^5.2",
-        "illuminate/database": "^5.2",
-        "erusev/parsedown-extra": "^0.7.1",
-        "seld/jsonlint": "^1.4",
-        "nyratas/php-console-log": "^1.1"
+        "kabas/core": "*"
     },
     "autoload": {
-          "psr-4": {
-                "Kabas\\": "core/"
-          }
-   }
+        "psr-4": {
+            "Themes\\": "themes/"
+        }
+    }
 }

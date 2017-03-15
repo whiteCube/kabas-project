@@ -1,6 +1,6 @@
 <?php
 
-namespace Theme\Example\Menus;
+namespace Theme\Welcome\Menus;
 
 use Kabas\Controller\MenuController;
 

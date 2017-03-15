@@ -1,7 +1,7 @@
-Project started 23/12/2015 - *Toon Van den Bos*
+# Kabas
 
-------------------
+**A flexible CMS**
 
-# Kabas 0.0.1
+Ever wanted a light, simple yet flexible Content Management System? That's exactly what we're trying to build here. Based on the ideas behind Laravel and some of its components, Kabas is already deployed on a few websites and will be published as an Open-Source Project as soon as we'll reach a completely stable version. Stay tuned !
 
-Kabas is a *"micro-php-cms"* based on JSON files in order to build the architecture.
+> **Note:** this repository only contains the files needed to start a Kabas project. Core files are installed using composer.

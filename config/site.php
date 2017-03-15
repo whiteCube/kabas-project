@@ -2,27 +2,8 @@
 return [
 
       /**
-       * The name of the theme you want to use on your site.
+       * The used theme on this website
        */
-      "theme" => "Test",
-
-      /**
-       * The languages available on your site. Each available language
-       * must have its own folder inside the content folder.
-       */
-      "lang" => [
-            "default" => "en-GB",
-            "available" => [
-                  "en-GB" => "EN"
-            ]
-      ],
-
-      /**
-       * Default meta information about your site.
-       */
-      "meta" => [
-            "description" => "This is the website's default description",
-            "keywords" => "Default keywords for meta:keywords"
-      ]
-
+      
+      "theme" => "Welcome",
 ];

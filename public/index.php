@@ -1,5 +1,7 @@
 <?php
 
+use Kabas\App;
+
 /**
  * Kabas application (website) launch
  *
@@ -18,7 +20,7 @@
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +31,5 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$kabas = new Kabas\App(realpath(__DIR__ . '/../'));
+$kabas = new App(realpath(__DIR__ . '/../'));
 $kabas->boot();

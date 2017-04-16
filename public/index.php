@@ -31,5 +31,5 @@ require_once __DIR__ . '/../vendor/autoload.php';
 |
 */
 
-$kabas = new App(realpath(__DIR__ . '/../'));
+$kabas = new App(realpath(__DIR__));
 $kabas->boot();

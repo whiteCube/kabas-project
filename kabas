@@ -2,6 +2,6 @@
 <?php
 array_shift($argv);
 
-require "core/_bootstrap/autoload.php";
+require_once __DIR__ . '/vendor/autoload.php';
 
 new Kabas\Cmd\Commander($argv);

@@ -1,16 +1,5 @@
-# Ignore themes
-/themes/*
-!/themes/Welcome/
-!/themes/README.md
-
 # Ignore vendor files
 /vendor/*
-
-# Ignore config
-/config/*
-
-# Ignore content
-/content/*
 
 # Ignore things
 composer.lock

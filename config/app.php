@@ -13,6 +13,14 @@
 return [
 
       /**
+       * Defines the errors display. When set to true, A customized Whoops
+       * will be used to display dumps and exceptions. If set to false, the default
+       * public error pages will be shown. You can make your own error pages.
+       * @var bool
+       */
+      "debug" => true,
+
+      /**
        * The default driver used to get your site's data in the content
        * folders. Only JSON is supported at the moment.
        * @var string

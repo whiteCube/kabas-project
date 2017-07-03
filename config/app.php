@@ -39,13 +39,17 @@ return [
       'aliases' => [
             'Assets' => Kabas\Utils\Assets::class,
             'Benchmark' => Kabas\Utils\Benchmark::class,
+            'Debug' => Kabas\Utils\Debug::class,
+            'File' => Kabas\Utils\File::class,
             'Lang' => Kabas\Utils\Lang::class,
+            'Log' => Kabas\Utils\Log::class,
             'Menu' => Kabas\Utils\Menu::class,
             'Meta' => Kabas\Utils\Meta::class,
             'Page' => Kabas\Utils\Page::class,
             'Part' => Kabas\Utils\Part::class,
             'Session' => Kabas\Utils\Session::class,
             'Text' => Kabas\Utils\Text::class,
+            'Uploads' => Kabas\Utils\Uploads::class,
             'Url' => Kabas\Utils\Url::class
       ],
 ];

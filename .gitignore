@@ -4,3 +4,4 @@
 # Ignore things
 composer.lock
 .DS_Store
+storage/logs/kabas.log

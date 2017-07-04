@@ -1,0 +1,20 @@
+{
+  "name": "Welcome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "laravel-mix": "^1.0.7"
+  },
+  "devDependencies": {
+    "laravel-mix": "^1.0.7"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js; rm mix-manifest.json",
+    "watch": "NODE_ENV=development webpack --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js; rm mix-manifest.json",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

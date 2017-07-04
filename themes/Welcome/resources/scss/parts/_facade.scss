@@ -1,0 +1,128 @@
+.facade {
+    background: $cAnthracite2;
+    background-image: url('../img/noise.png');
+
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: $cWhite;
+        z-index: -1;
+        height: 6900px;
+        width: 6900px;
+        right: 50%;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        min-height: 100%;
+        border-radius: 3400px;
+        transition: border-radius .2s $ease-out-quad;
+        box-shadow: 0 0 60px rgba(black, 0.08);
+    }
+
+    &__sidepanel {
+        color: #485151;
+        height: 100%;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+    }
+
+    &__content {
+        max-width: col(9, 26);
+        margin-left: col(2, 26);
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__title {
+        font-size: s($s7);
+        font-weight: 700;
+        margin-bottom: s(25, $s7);
+    }
+
+    &__text {
+        line-height: s($s8);
+        margin-bottom: s(35);
+
+        p {
+            margin-bottom: s(25);
+        }
+    }
+
+    &__link {
+        color: $cRed1;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color .2s $ease-out-quad;
+
+        &:hover {
+            color: $cRed2;
+        }
+    }
+
+    &__social {
+        color: $cAnthracite1;
+        text-decoration: none;
+        margin-right: 40px;
+
+        &:before {
+            content: '';
+            display: inline-block;
+            width: s(24);
+            height: s(24);
+            vertical-align: s(-7);
+            margin-right: s(10);
+            background: transparent no-repeat center center;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+        }
+
+        &--gh:before {
+            background-image: url('../img/github.svg');
+        }
+
+        &--tw:before {
+            background-image: url('../img/twitter.svg');
+        }
+
+    }
+
+
+    .btn {
+        margin-top: s(50);
+        margin-bottom: s(45);
+    }
+
+    &--welcome {
+        .btn {
+            width: col(6, 8);
+        }
+    }
+
+    &__version {
+        position: absolute;
+        bottom: s(50, $s2);
+        left: 0;
+        font-size: s($s2);
+        color: $cGray;
+    }
+
+    &__canvas {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+}
+

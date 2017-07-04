@@ -1,0 +1,22 @@
+.btn {
+    display: block;
+    font-family: $fSans;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: s($s1);
+    border-radius: s(3, $s1);
+    text-transform: uppercase;
+    letter-spacing: s(0.7, $s1);
+    padding: s(17, $s1);
+    text-align: center;
+    transition: background .2s $ease-out-quad;
+
+    &--primary {
+        background: $cRed1;
+        color: $cWhite2;
+
+        &:hover {
+            background: $cRed2;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+body {
+    overflow: hidden;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+}
+
+.container {
+    max-width: s($ws_sGridzTotalWidth);
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+}

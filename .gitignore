@@ -6,3 +6,4 @@ composer.lock
 .DS_Store
 storage/logs/kabas.log
 themes/Welcome/node_modules
+themes/Welcome/mix-manifest.json

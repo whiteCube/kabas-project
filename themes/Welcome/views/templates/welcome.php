@@ -15,12 +15,12 @@
                     <p><?= Lang::trans('welcome.success') ?></p>
                     <p><?= Lang::trans('welcome.cms') ?></p>
                     <p>
-                        <?= Lang::trans('welcome.info', ['link' => '<a href="https://www.kabas.io" class="facade__link">kabas.io</a>']) ?><br>
-                        <?= Lang::trans('welcome.developers', ['link' => '<a href="https://documentation.kabas.io" class="facade__link">' . Lang::trans('welcome.documentation') . '</a>']) ?>
+                        <?= Lang::trans('welcome.info', ['link' => '<a href="https://www.kabas.io" class="link">kabas.io</a>']) ?><br>
+                        <?= Lang::trans('welcome.developers', ['link' => '<a href="https://documentation.kabas.io" class="link">' . Lang::trans('welcome.documentation') . '</a>']) ?>
                     </p>
                 </div>
-                <a href="https://www.github.com/WhiteCube" class="facade__social facade__social--gh"><?= Lang::trans('welcome.github') ?></a>
-                <a href="https://www.twitter.com/WhiteCube" class="facade__social facade__social--tw"><?= Lang::trans('welcome.twitter') ?></a>
+                <a href="https://www.github.com/WhiteCube" class="icon-link icon-link--gh"><?= Lang::trans('welcome.github') ?></a>
+                <a href="https://www.twitter.com/WhiteCube" class="icon-link icon-link--tw"><?= Lang::trans('welcome.twitter') ?></a>
                 <a href="#" class="btn btn--primary"><?= Lang::trans('welcome.account.create') ?></a>
             </div>
             <span class="facade__version">Kabas <?= $version ?></span>

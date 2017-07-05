@@ -8,3 +8,16 @@ $s7: 24.3;
 $s8: 27.4;
 
 $fSans: 'Open Sans', sans-serif;
+
+
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?stolls');
+  src:  url('../fonts/icomoon.eot?stolls#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?stolls') format('truetype'),
+    url('../fonts/icomoon.woff?stolls') format('woff'),
+    url('../fonts/icomoon.svg?stolls#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

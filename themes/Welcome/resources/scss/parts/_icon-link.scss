@@ -1,0 +1,30 @@
+.icon-link {
+    color: $cAnthracite1;
+    text-decoration: none;
+    margin-right: 40px;
+
+    &:before {
+        content: '';
+        @include iconBase();
+        display: inline-block;
+        font-size: s(24);
+        vertical-align: s(-5, 24);
+        margin-right: s(10, 24);
+        background: transparent no-repeat center center;
+        -webkit-background-size: 100%;
+        background-size: 100%;
+        transition: color .2s $ease-out-quad;
+    }
+
+    &:hover:before {
+        color: $cRed1;
+    }
+
+    &--gh:before {
+        @include iconInclude(github);
+    }
+
+    &--tw:before {
+        @include iconInclude(twitter);
+    }
+}

@@ -1,11 +1,11 @@
-// - @include setIconBase()
+// - @include iconBase()
 // **********************************************************
 // Sets all base rules in order to use icons on this element
 // Does not include the icon itself
 // Can be useful if you want to optimise your code.
 // **********************************************************
 
-@mixin setIconBase() {
+@mixin iconBase() {
       font-family: $ws_icon-font-family;
       speak: none;
       font-style: normal;
@@ -18,14 +18,14 @@
 }
 
 
-// - @include setIconInclude( $icon: icon-name )
+// - @include iconInclude( $icon: icon-name )
 // **********************************************************
 // Includes the icon's content value.
 // $icon is the first param of the icon you want to use
 // as defined in config/icons.
 // **********************************************************
 
-@mixin setIconInclude($icon) {
+@mixin iconInclude($icon) {
       @each $s in $ws_icon-list {
             @if nth($s, 1) == $icon {
                   content: nth($s, 2);
@@ -42,6 +42,6 @@
 // **********************************************************
 
 @mixin icon($icon) {
-      @include setIconBase();
-      @include setIconInclude($icon);  
+      @include iconBase();
+      @include iconInclude($icon);  
 }

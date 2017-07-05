@@ -1,0 +1,28 @@
+.link {
+    color: $cRed1;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s $ease-out-quad;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: $cRed1;
+        transition: transform .2s $ease-out-quad;
+        transform: translateX(-100%);
+    }
+
+    &:hover {
+        &:before {
+            transform: none;
+        }
+    }
+}

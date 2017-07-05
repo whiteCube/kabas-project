@@ -55,45 +55,6 @@
         }
     }
 
-    &__link {
-        color: $cRed1;
-        font-weight: 600;
-        text-decoration: none;
-        transition: color .2s $ease-out-quad;
-
-        &:hover {
-            color: $cRed2;
-        }
-    }
-
-    &__social {
-        color: $cAnthracite1;
-        text-decoration: none;
-        margin-right: 40px;
-
-        &:before {
-            content: '';
-            display: inline-block;
-            width: s(24);
-            height: s(24);
-            vertical-align: s(-7);
-            margin-right: s(10);
-            background: transparent no-repeat center center;
-            -webkit-background-size: 100%;
-            background-size: 100%;
-        }
-
-        &--gh:before {
-            background-image: url('../img/github.svg');
-        }
-
-        &--tw:before {
-            background-image: url('../img/twitter.svg');
-        }
-
-    }
-
-
     .btn {
         margin-top: s(50);
         margin-bottom: s(45);

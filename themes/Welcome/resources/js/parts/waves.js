@@ -10,14 +10,13 @@ export default class Waves {
     {
         this.conf = {
             canvas: 'canvas',
-            unit: 100,
-            amplitude: 0.3,
+            scale: 80,
             smoothing: 80
         };
 
         this.waves = [
-            { x: 0, speed: 0.009, opacity: 0.03, offset: { x: 0, y: 0.33 } },
-            { x: 300, speed: 0.015, opacity: 0.03, offset: { x: 0, y: 0.66 } },
+            { x: 0, speed: 0.009, opacity: 0.03, amplitude: 0.3, offset: { x: 0, y: 0.33 } },
+            { x: 200, speed: 0.015, opacity: 0.03, amplitude: 0.15, offset: { x: 0, y: 0.66 } },
         ];
     }
 
@@ -52,9 +51,9 @@ export default class Waves {
         var x, y, i = 0;
         wave.x -= wave.speed;
         for(i; i <= this.drawLimit; i += this.conf.smoothing) {
-            x = wave.x + i / this.conf.unit;
-            y = Math.sin(this.conf.amplitude * x);
-            this.ctx.lineTo(i, Math.round((this.conf.unit * y) + (wave.offset.y * this.canvas.height)));
+            x = wave.x + i / this.conf.scale;
+            y = Math.sin(wave.amplitude * x);
+            this.ctx.lineTo(i, Math.round((this.conf.scale * y) + (wave.offset.y * this.canvas.height)));
         }
         this.ctx.lineTo(this.canvas.width, this.canvas.height);
         this.ctx.lineTo(0, this.canvas.height);

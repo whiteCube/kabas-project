@@ -19,9 +19,11 @@
                         <?= Lang::trans('welcome.developers', ['link' => '<a href="https://documentation.kabas.io" class="link">' . Lang::trans('welcome.documentation') . '</a>']) ?>
                     </p>
                 </div>
-                <a href="https://www.github.com/WhiteCube" class="icon-link icon-link--gh"><?= Lang::trans('welcome.github') ?></a>
-                <a href="https://www.twitter.com/WhiteCube" class="icon-link icon-link--tw"><?= Lang::trans('welcome.twitter') ?></a>
+                <?= Menu::social() ?>
+                <?php if(!$hasAdmins): ?>
+                <!-- TODO: Replace the # with a proper link to admin page -->
                 <a href="#" class="btn btn--primary"><?= Lang::trans('welcome.account.create') ?></a>
+                <?php endif; ?>
             </div>
             <span class="facade__version">Kabas <?= $version ?></span>
         </div>

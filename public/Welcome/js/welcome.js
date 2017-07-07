@@ -112,12 +112,12 @@ var Waves = function () {
         key: 'setConfig',
         value: function setConfig() {
             this.config = {
-                waveCanvas: 'wave',
+                wave: 'wave',
                 waveContainer: 'wave-container',
-                canvas: 'canvas'
+                width: 1.05
             };
 
-            this.waves = [{ x: 0, duration: 100, opacity: 0.04, amplitude: 0.2, offset: { x: 0, y: 30 } }, { x: 0, duration: 45, opacity: 0.03, amplitude: 0.15, offset: { x: 0, y: 60 } }];
+            this.waves = [{ x: 0, duration: 100, opacity: 0.04, amplitude: 0.15, offset: { x: 0, y: 30 } }, { x: 0, duration: 45, opacity: 0.03, amplitude: 0.10, offset: { x: 0, y: 60 } }];
         }
     }, {
         key: 'getElements',
@@ -142,13 +142,15 @@ var Waves = function () {
         key: 'createSvg',
         value: function createSvg(wave) {
             var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.setAttribute('width', '400');
-            svg.setAttribute('height', '100');
-            svg.setAttribute('viewBox', '0 0 400 100');
-            svg.classList.add(this.config.waveCanvas);
+            var width = this.getSvgWidth();
+            var height = this.getSvgHeight(wave);
+            svg.setAttribute('width', width);
+            svg.setAttribute('height', height);
+            svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+            svg.classList.add(this.config.wave);
             svg.style.opacity = wave.opacity;
-            svg.style.transform = 'translateX(' + -wave.offset.x + 'px)';
             svg.style.top = wave.offset.y + '%';
+            svg.style.height = height + 'px';
             svg.style.animation = 'wave ' + wave.duration + 's linear infinite';
             return svg;
         }
@@ -156,11 +158,27 @@ var Waves = function () {
         key: 'createPath',
         value: function createPath(wave) {
             var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            var height = 100 * wave.amplitude;
-            path.setAttribute('d', 'M 0 ' + height + ' C 50 ' + height + ', 50 0, 100 0 C 150 0, 150 ' + height + ', 200 ' + height + ' C 250 ' + height + ', 250 0, 300 0 C 350 0, 350 ' + height + ', 400 ' + height + ', V 800 H 0');
-            path.setAttribute('transform', 'translate(0 -55)');
+            var svgHeight = this.getSvgHeight(wave);
+            var width = this.getSvgWidth();
+            var height = this.calculate(100, width) * wave.amplitude;
+            path.setAttribute('d', 'M 0 ' + height + ' C ' + this.calculate(50, width) + ' ' + height + ', ' + this.calculate(50, width) + ' 0, ' + this.calculate(100, width) + ' 0 C ' + this.calculate(150, width) + ' 0, ' + this.calculate(150, width) + ' ' + height + ', ' + this.calculate(200, width) + ' ' + height + ' C ' + this.calculate(250, width) + ' ' + height + ', ' + this.calculate(250, width) + ' 0, ' + this.calculate(300, width) + ' 0 C ' + this.calculate(350, width) + ' 0, ' + this.calculate(350, width) + ' ' + height + ', ' + this.calculate(400, width) + ' ' + height + ' V ' + svgHeight + ' H 0 Z');
             path.setAttribute('fill', 'white');
             return path;
+        }
+    }, {
+        key: 'getSvgHeight',
+        value: function getSvgHeight(wave) {
+            return window.innerHeight * ((100 - wave.offset.y) / 100);
+        }
+    }, {
+        key: 'getSvgWidth',
+        value: function getSvgWidth() {
+            return window.innerWidth * this.config.width;
+        }
+    }, {
+        key: 'calculate',
+        value: function calculate(number, width) {
+            return number * width / 400;
         }
     }]);
 

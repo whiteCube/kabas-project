@@ -28,7 +28,8 @@
             <span class="facade__version">Kabas <?= $version ?></span>
         </div>
     </div>
-    <canvas id="canvas" class="facade__canvas"></canvas>
+    <div class="wave-container">
+    </div>
     <?php Assets::here('scripts'); ?>
 </body>
 </html>

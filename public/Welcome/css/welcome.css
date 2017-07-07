@@ -83,6 +83,39 @@ body {
   font-style: normal;
 }
 
+@-webkit-keyframes wave {
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@keyframes wave {
+  100% {
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400%;
+  height: 200%;
+}
+
+.wave-container {
+  overflow: hidden;
+  width: 52%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  z-index: -1;
+  right: 0;
+}
+
 .facade {
   background: #2B3131;
   background-image: url("../img/noise.png");
@@ -164,10 +197,8 @@ body {
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
   height: 100%;
-  width: 100%;
-  z-index: -1;
+  z-index: 50;
 }
 
 .icon-link {

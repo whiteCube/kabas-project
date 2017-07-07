@@ -104,63 +104,63 @@ var Waves = function () {
         _classCallCheck(this, Waves);
 
         this.setConfig();
-        this.initCanvas();
-        this.draw();
+        this.getElements();
+        this.initWaves();
     }
 
     _createClass(Waves, [{
         key: 'setConfig',
         value: function setConfig() {
-            this.conf = {
-                canvas: 'canvas',
-                scale: 80,
-                smoothing: 80
+            this.config = {
+                waveCanvas: 'wave',
+                waveContainer: 'wave-container',
+                canvas: 'canvas'
             };
 
-            this.waves = [{ x: 0, speed: 0.009, opacity: 0.03, amplitude: 0.3, offset: { x: 0, y: 0.33 } }, { x: 200, speed: 0.015, opacity: 0.03, amplitude: 0.15, offset: { x: 0, y: 0.66 } }];
+            this.waves = [{ x: 0, duration: 100, opacity: 0.04, amplitude: 0.2, offset: { x: 0, y: 30 } }, { x: 0, duration: 45, opacity: 0.03, amplitude: 0.15, offset: { x: 0, y: 60 } }];
         }
     }, {
-        key: 'initCanvas',
-        value: function initCanvas() {
-            this.canvas = document.getElementById(this.conf.canvas);
-            this.canvas.width = document.body.clientWidth;
-            this.canvas.height = document.body.clientHeight;
-            this.ctx = this.canvas.getContext('2d');
-            this.drawLimit = this.canvas.width + this.conf.smoothing;
+        key: 'getElements',
+        value: function getElements() {
+            this.waveContainer = document.querySelector('.' + this.config.waveContainer);
         }
     }, {
-        key: 'draw',
-        value: function draw() {
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.drawWaves();
-            requestAnimationFrame(this.draw.bind(this));
-        }
-    }, {
-        key: 'drawWaves',
-        value: function drawWaves() {
-            var i = 0;
-            for (i; i < this.waves.length; i++) {
-                this.ctx.beginPath();
+        key: 'initWaves',
+        value: function initWaves() {
+            for (var i = 0; i < this.waves.length; i++) {
                 this.drawWave(this.waves[i]);
-                this.ctx.closePath();
             }
         }
     }, {
         key: 'drawWave',
         value: function drawWave(wave) {
-            var x,
-                y,
-                i = 0;
-            wave.x -= wave.speed;
-            for (i; i <= this.drawLimit; i += this.conf.smoothing) {
-                x = wave.x + i / this.conf.scale;
-                y = Math.sin(wave.amplitude * x);
-                this.ctx.lineTo(i, Math.round(this.conf.scale * y + wave.offset.y * this.canvas.height));
-            }
-            this.ctx.lineTo(this.canvas.width, this.canvas.height);
-            this.ctx.lineTo(0, this.canvas.height);
-            this.ctx.fillStyle = 'rgba(255, 255, 255, ' + wave.opacity + ')';
-            this.ctx.fill();
+            wave.svg = this.createSvg(wave);
+            wave.svg.appendChild(this.createPath(wave));
+            this.waveContainer.appendChild(wave.svg);
+        }
+    }, {
+        key: 'createSvg',
+        value: function createSvg(wave) {
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '400');
+            svg.setAttribute('height', '100');
+            svg.setAttribute('viewBox', '0 0 400 100');
+            svg.classList.add(this.config.waveCanvas);
+            svg.style.opacity = wave.opacity;
+            svg.style.transform = 'translateX(' + -wave.offset.x + 'px)';
+            svg.style.top = wave.offset.y + '%';
+            svg.style.animation = 'wave ' + wave.duration + 's linear infinite';
+            return svg;
+        }
+    }, {
+        key: 'createPath',
+        value: function createPath(wave) {
+            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            var height = 100 * wave.amplitude;
+            path.setAttribute('d', 'M 0 ' + height + ' C 50 ' + height + ', 50 0, 100 0 C 150 0, 150 ' + height + ', 200 ' + height + ' C 250 ' + height + ', 250 0, 300 0 C 350 0, 350 ' + height + ', 400 ' + height + ', V 800 H 0');
+            path.setAttribute('transform', 'translate(0 -55)');
+            path.setAttribute('fill', 'white');
+            return path;
         }
     }]);
 

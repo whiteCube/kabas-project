@@ -1,0 +1,17 @@
+{
+    "id": "social",
+    "template": "social",
+    "data": {},
+    "items": [
+        {
+            "label": "Kabas on GitHub",
+            "target": "https://www.github.com/WhiteCube",
+            "icon": "gh"
+        },
+        {
+            "label": "Kabas on Twitter",
+            "target": "https://www.twitter.com/WhiteCubeAgency",
+            "icon": "tw"
+        }
+    ]
+}

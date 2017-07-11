@@ -1,0 +1,24 @@
+@keyframes wave {
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    animation: wave 100s linear infinite;
+}
+
+.wave-container {
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    z-index: -1;
+    right: 0;
+}

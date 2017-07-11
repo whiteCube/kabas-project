@@ -104,63 +104,80 @@ var Waves = function () {
         _classCallCheck(this, Waves);
 
         this.setConfig();
-        this.initCanvas();
-        this.draw();
+        this.getElements();
+        this.initWaves();
     }
 
     _createClass(Waves, [{
         key: 'setConfig',
         value: function setConfig() {
-            this.conf = {
-                canvas: 'canvas',
-                scale: 80,
-                smoothing: 80
+            this.config = {
+                wave: 'wave',
+                waveContainer: 'wave-container'
             };
 
-            this.waves = [{ x: 0, speed: 0.009, opacity: 0.03, amplitude: 0.3, offset: { x: 0, y: 0.33 } }, { x: 200, speed: 0.015, opacity: 0.03, amplitude: 0.15, offset: { x: 0, y: 0.66 } }];
+            this.waves = [{ x: 0, duration: 50, opacity: 0.04, amplitude: 0.12, offset: { y: 30 } }, { x: 200, duration: 30, opacity: 0.03, amplitude: 0.085, offset: { y: 60 } }];
         }
     }, {
-        key: 'initCanvas',
-        value: function initCanvas() {
-            this.canvas = document.getElementById(this.conf.canvas);
-            this.canvas.width = document.body.clientWidth;
-            this.canvas.height = document.body.clientHeight;
-            this.ctx = this.canvas.getContext('2d');
-            this.drawLimit = this.canvas.width + this.conf.smoothing;
+        key: 'getElements',
+        value: function getElements() {
+            this.waveContainer = document.querySelector('.' + this.config.waveContainer);
         }
     }, {
-        key: 'draw',
-        value: function draw() {
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.drawWaves();
-            requestAnimationFrame(this.draw.bind(this));
-        }
-    }, {
-        key: 'drawWaves',
-        value: function drawWaves() {
-            var i = 0;
-            for (i; i < this.waves.length; i++) {
-                this.ctx.beginPath();
+        key: 'initWaves',
+        value: function initWaves() {
+            for (var i = 0; i < this.waves.length; i++) {
                 this.drawWave(this.waves[i]);
-                this.ctx.closePath();
             }
         }
     }, {
         key: 'drawWave',
         value: function drawWave(wave) {
-            var x,
-                y,
-                i = 0;
-            wave.x -= wave.speed;
-            for (i; i <= this.drawLimit; i += this.conf.smoothing) {
-                x = wave.x + i / this.conf.scale;
-                y = Math.sin(wave.amplitude * x);
-                this.ctx.lineTo(i, Math.round(this.conf.scale * y + wave.offset.y * this.canvas.height));
-            }
-            this.ctx.lineTo(this.canvas.width, this.canvas.height);
-            this.ctx.lineTo(0, this.canvas.height);
-            this.ctx.fillStyle = 'rgba(255, 255, 255, ' + wave.opacity + ')';
-            this.ctx.fill();
+            wave.svg = this.createSvg(wave);
+            wave.svg.appendChild(this.createPath(wave));
+            this.waveContainer.appendChild(wave.svg);
+        }
+    }, {
+        key: 'createSvg',
+        value: function createSvg(wave) {
+            var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            var width = this.getSvgWidth();
+            var height = this.getSvgHeight(wave);
+            svg.setAttribute('width', width);
+            svg.setAttribute('height', height);
+            svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+            svg.classList.add(this.config.wave);
+            svg.style.opacity = wave.opacity;
+            svg.style.top = wave.offset.y + '%';
+            svg.style.height = height + 'px';
+            svg.style.animation = 'wave ' + wave.duration + 's linear infinite';
+            return svg;
+        }
+    }, {
+        key: 'createPath',
+        value: function createPath(wave) {
+            var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            var svgHeight = this.getSvgHeight(wave);
+            var width = this.getSvgWidth();
+            var height = this.calculate(100, width) * wave.amplitude;
+            path.setAttribute('d', 'M 0 ' + height + ' C ' + this.calculate(50, width) + ' ' + height + ', ' + this.calculate(50, width) + ' 0, ' + this.calculate(100, width) + ' 0 C ' + this.calculate(150, width) + ' 0, ' + this.calculate(150, width) + ' ' + height + ', ' + this.calculate(200, width) + ' ' + height + ' C ' + this.calculate(250, width) + ' ' + height + ', ' + this.calculate(250, width) + ' 0, ' + this.calculate(300, width) + ' 0 C ' + this.calculate(350, width) + ' 0, ' + this.calculate(350, width) + ' ' + height + ', ' + this.calculate(400, width) + ' ' + height + ' V ' + svgHeight + ' H 0 Z');
+            path.setAttribute('fill', 'white');
+            return path;
+        }
+    }, {
+        key: 'getSvgHeight',
+        value: function getSvgHeight(wave) {
+            return window.innerHeight * ((100 - wave.offset.y) / 100);
+        }
+    }, {
+        key: 'getSvgWidth',
+        value: function getSvgWidth() {
+            return window.innerWidth * 2;
+        }
+    }, {
+        key: 'calculate',
+        value: function calculate(number, width) {
+            return number * width / 400;
         }
     }]);
 

@@ -1,0 +1,20 @@
+{
+    "item": {
+        "label": {
+            "type": "text",
+            "label": "Name"
+        },
+        "target": {
+            "type": "url",
+            "label": "Target page"
+        },
+        "icon": {
+            "type": "select",
+            "label": "Icon",
+            "options": [
+                "gh",
+                "tw"
+            ]
+        }
+    }
+}

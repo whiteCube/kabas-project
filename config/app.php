@@ -38,6 +38,7 @@ return [
        */
       'aliases' => [
             'Assets' => Kabas\Utils\Assets::class,
+            'Auth' => Kabas\Utils\Auth::class,
             'Benchmark' => Kabas\Utils\Benchmark::class,
             'Debug' => Kabas\Utils\Debug::class,
             'File' => Kabas\Utils\File::class,

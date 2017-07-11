@@ -14,29 +14,18 @@
             "email": "adrien@whitecube.be"
         }
     ],
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "kabas/core",
-                "version": "0.1.4",
-                "type": "package",
-                "source": {
-                    "url": "git@gitlab.whitecube.be:kabas/core.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Kabas\\": "src/Kabas/"
-                    }
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=7.1",
-        "kabas/core": "*"
+        "kabas/core": "0.1.5",
+        "illuminate/container": "^5.2",
+        "illuminate/database": "^5.2",
+        "illuminate/translation": "^5.4",
+        "intervention/image": "^2.3",
+        "erusev/parsedown-extra": "^0.7.1",
+        "seld/jsonlint": "^1.4",
+        "nyratas/php-console-log": "^1.1",
+        "whitecube/lingua": "^1.0",
+        "filp/whoops": "^2.1"
     },
     "autoload": {
         "psr-4": {

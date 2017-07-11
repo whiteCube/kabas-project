@@ -10,13 +10,12 @@ export default class Waves {
     {
         this.config = {
             wave: 'wave',
-            waveContainer: 'wave-container',
-            width: 1.05,
+            waveContainer: 'wave-container'
         };
 
         this.waves = [
-            { x: 0, duration: 100, opacity: 0.04, amplitude: 0.15, offset: { x: 0, y: 30 } },
-            { x: 0, duration: 45, opacity: 0.03, amplitude: 0.10, offset: { x: 0, y: 60 } },
+            { x: 0, duration: 50, opacity: 0.04, amplitude: 0.12, offset: { y: 30 } },
+            { x: 200, duration: 30, opacity: 0.03, amplitude: 0.085, offset: { y: 60 } },
         ];
     }
 
@@ -73,7 +72,7 @@ export default class Waves {
 
     getSvgWidth()
     {
-        return window.innerWidth * this.config.width;
+        return window.innerWidth * 2;
     }
 
     calculate(number, width)

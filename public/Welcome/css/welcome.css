@@ -109,7 +109,7 @@ body {
 
 .wave-container {
   overflow: hidden;
-  width: 52%;
+  width: 100%;
   position: absolute;
   bottom: 0;
   height: 100%;

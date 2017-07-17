@@ -230,7 +230,7 @@ body {
 }
 
 .icon-link:hover:before {
-  color: #C95951;
+  color: #DF726A;
 }
 
 .icon-link--gh:before {
@@ -260,7 +260,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: #C95951;
+  background: #DF726A;
   -webkit-transition: -webkit-transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: -webkit-transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -290,10 +290,10 @@ body {
 }
 
 .btn--primary {
-  background: #C95951;
+  background: #DF726A;
   color: #F1F1F1;
 }
 
 .btn--primary:hover {
-  background: #B44A42;
+  background: #C95951;
 }

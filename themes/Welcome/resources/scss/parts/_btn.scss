@@ -12,11 +12,11 @@
     transition: background .2s $ease-out-quad;
 
     &--primary {
-        background: $cRed1;
+        background: $cRed0;
         color: $cWhite2;
 
         &:hover {
-            background: $cRed2;
+            background: $cRed1;
         }
     }
 }

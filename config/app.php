@@ -53,4 +53,10 @@ return [
             'Uploads' => Kabas\Utils\Uploads::class,
             'Url' => Kabas\Utils\Url::class
       ],
+
+      /**
+       * List of service providers to load into the app
+       * @var array
+       */
+      'providers' => []
 ];

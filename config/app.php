@@ -33,6 +33,12 @@ return [
       'imageDriver' => 'gd',
 
       /**
+       * The templating engine to use (available: 'php', 'blade')
+       * @var string
+       */
+      'templating' => 'blade',
+
+      /**
        * Aliases for classes
        * @var array
        */
@@ -58,5 +64,7 @@ return [
        * List of service providers to load into the app
        * @var array
        */
-      'providers' => []
+      'providers' => [
+            Kabas\Providers\View\ViewServiceProvider::class
+      ]
 ];
